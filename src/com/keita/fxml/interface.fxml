@@ -20,16 +20,9 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="650.0">
+      <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="650.0">
          <children>
-            <Text fx:id="playerOne" layoutX="79.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player one" />
-            <Text fx:id="playerTwo" layoutX="514.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player two" />
-            <Text fx:id="playerOneScore" layoutX="219.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-            <Text fx:id="playerTwoScore" layoutX="416.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-            <Text fx:id="drawScore" layoutX="320.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-            <Text layoutX="282.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Win Draw Win" wrappingWidth="85.69970703125" />
-            <Separator fx:id="horzSeparator" layoutX="16.0" layoutY="101.0" prefHeight="0.0" prefWidth="619.0" />
-            <GridPane alignment="CENTER" layoutX="79.0" layoutY="145.0" prefHeight="150.0" prefWidth="500.0">
+            <GridPane alignment="CENTER" layoutX="78.0" layoutY="139.0" prefHeight="150.0" prefWidth="500.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -41,7 +34,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button fx:id="button1" mnemonicParsing="false" text="Button" />
                   <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" />
                   <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" />
                   <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="1" />
@@ -52,7 +45,17 @@
                   <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <Text layoutX="16.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player turn: " />
+            <Pane fx:id="pane" layoutY="-2.0" prefHeight="101.0" prefWidth="656.0">
+               <children>
+                  <Label fx:id="playerOne" layoutX="74.0" layoutY="51.0" text="Player one" />
+                  <Label fx:id="playerOneScore" layoutX="281.0" layoutY="51.0" text="0" />
+                  <Label fx:id="drawScore" layoutX="324.0" layoutY="51.0" text="0" />
+                  <Label fx:id="playerTwoScore" layoutX="368.0" layoutY="51.0" text="0" />
+                  <Label fx:id="playerTwo" layoutX="477.0" layoutY="51.0" text="Player two" />
+                  <Label fx:id="drawWin" layoutX="264.0" layoutY="20.0" text="Win Draw Win" />
+               </children>
+            </Pane>
+            <Label fx:id="playerTurn" layoutX="28.0" layoutY="319.0" text="Player turn" />
          </children>
          <padding>
             <Insets left="15.0" right="15.0" />
