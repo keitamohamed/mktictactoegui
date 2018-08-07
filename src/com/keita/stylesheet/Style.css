@@ -21,3 +21,38 @@
     -fx-border: none;
 
 }
+
+#button1:hover, #button2:hover, #button3:hover, #button4:hover,
+#button5:hover, #button6:hover, #button7:hover, #button8:hover, #button9:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #389b11;
+}
+
+#playerTurn {
+    -fx-text-fill: red;
+    -fx-font-size: 16px;
+}
+
+#reMatch {
+    -fx-min-width: 38px;
+    -fx-max-height: 30px;
+    -fx-background-image: url("/image/reload.png");
+    -fx-background-size: 35 25;
+    -fx-background-repeat: no-repeat;
+}
+
+#newGame {
+    -fx-min-width: 38px;
+    -fx-max-height: 30px;
+    -fx-background-image: url("/image/newgame.png");
+    -fx-background-size: 35 25;
+    -fx-background-repeat: no-repeat;
+}
+
+#endGame {
+    -fx-min-width: 38px;
+    -fx-max-height: 30px;
+    -fx-background-image: url("/image/poweroff.png");
+    -fx-background-size: 35 24;
+    -fx-background-repeat: no-repeat;
+}
