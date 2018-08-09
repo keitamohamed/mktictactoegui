@@ -52,28 +52,28 @@ public class Controller {
                     }
                 } else if (i == 1) {
                         if (j == 0) {
-                            button2.setText("E4");
-                            dashboard[i][j] = button2;
-                        }else if (j == 1) {
-                            button4.setText("E5");
+                            button4.setText("E4");
                             dashboard[i][j] = button4;
+                        }else if (j == 1) {
+                            button5.setText("E5");
+                            dashboard[i][j] = button5;
                         }
                         else {
-                            button5.setText("E6");
-                            dashboard[i][j] = button5;
+                            button6.setText("E6");
+                            dashboard[i][j] = button6;
                         }
                 }else{
                     if (j == 0) {
-                        button4.setText("E7");
-                        dashboard[i][j] = button4;
+                        button7.setText("E7");
+                        dashboard[i][j] = button7;
                     }
                     else if (j == 1) {
-                        button5.setText("E8");
-                        dashboard[i][j] = button5;
+                        button8.setText("E8");
+                        dashboard[i][j] = button8;
                     }
                     else {
-                        button6.setText("E9");
-                        dashboard[i][j] = button6;
+                        button9.setText("E9");
+                        dashboard[i][j] = button9;
                     }
                 }
             }
