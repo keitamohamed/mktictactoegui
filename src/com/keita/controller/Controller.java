@@ -46,36 +46,34 @@ public class Controller {
                     else if (j == 1) {
                         button2.setText("E2");
                         dashboard[i][j] = button2;
-                    }
-                    else {
+                    }else {
                         button3.setText("E3");
                         dashboard[i][j] = button3;
                     }
-                }else if (i == 1) {
+                } else if (i == 1) {
+                        if (j == 0) {
+                            button2.setText("E4");
+                            dashboard[i][j] = button2;
+                        }else if (j == 1) {
+                            button4.setText("E5");
+                            dashboard[i][j] = button4;
+                        }
+                        else {
+                            button5.setText("E6");
+                            dashboard[i][j] = button5;
+                        }
+                }else{
                     if (j == 0) {
-                        button4.setText("E4");
+                        button4.setText("E7");
                         dashboard[i][j] = button4;
                     }
                     else if (j == 1) {
-                        button5.setText("E5");
+                        button5.setText("E8");
                         dashboard[i][j] = button5;
                     }
                     else {
-                        button6.setText("E6");
+                        button6.setText("E9");
                         dashboard[i][j] = button6;
-                    }
-                }else {
-                    if (j == 0) {
-                        button7.setText("E7");
-                        dashboard[i][j] = button7;
-                    }
-                    else if (j == 1) {
-                        button8.setText("E8");
-                        dashboard[i][j] = button8;
-                    }
-                    else {
-                        button9.setText("E9");
-                        dashboard[i][j] = button9;
                     }
                 }
             }

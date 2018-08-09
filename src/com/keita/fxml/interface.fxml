@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keita.controller.Controller">
    <columnConstraints>
       <ColumnConstraints />
@@ -13,7 +16,7 @@
    <children>
       <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="650.0">
          <children>
-            <GridPane alignment="CENTER" layoutX="78.0" layoutY="139.0" prefHeight="150.0" prefWidth="500.0">
+            <GridPane alignment="CENTER" layoutX="78.0" layoutY="106.0" prefHeight="150.0" prefWidth="500.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -36,7 +39,7 @@
                   <Button fx:id="button9" mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <Pane fx:id="pane" layoutY="-2.0" prefHeight="101.0" prefWidth="656.0">
+            <Pane fx:id="pane" layoutY="-2.0" prefHeight="89.0" prefWidth="656.0">
                <children>
                   <Label fx:id="playerOne" layoutX="74.0" layoutY="51.0" text="Player one" />
                   <Label fx:id="playerOneScore" layoutX="281.0" layoutY="51.0" text="0" />
@@ -46,10 +49,10 @@
                   <Label fx:id="drawWin" layoutX="264.0" layoutY="20.0" text="Win Draw Win" />
                </children>
             </Pane>
-            <Label fx:id="playerTurn" layoutX="28.0" layoutY="319.0" text="Player turn" />
-            <Button fx:id="reMatch" layoutX="453.0" layoutY="314.0" mnemonicParsing="false" />
-            <Button fx:id="newGame" layoutX="519.0" layoutY="314.0" mnemonicParsing="false" />
-            <Button fx:id="endGame" layoutX="588.0" layoutY="314.0" mnemonicParsing="false" />
+            <Label fx:id="playerTurn" layoutX="27.0" layoutY="305.0" text="Player turn" />
+            <Button fx:id="reMatch" layoutX="452.0" layoutY="300.0" mnemonicParsing="false" />
+            <Button fx:id="newGame" layoutX="518.0" layoutY="300.0" mnemonicParsing="false" />
+            <Button fx:id="endGame" layoutX="587.0" layoutY="300.0" mnemonicParsing="false" />
          </children>
          <padding>
             <Insets left="15.0" right="15.0" />
