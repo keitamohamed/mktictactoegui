@@ -2,9 +2,16 @@
 
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keita.controller.Controller">
    <columnConstraints>
@@ -50,8 +57,8 @@
                </children>
             </Pane>
             <Label fx:id="playerTurn" layoutX="27.0" layoutY="305.0" text="Player turn" />
-            <Button fx:id="reMatch" layoutX="452.0" layoutY="300.0" mnemonicParsing="false" />
-            <Button fx:id="newGame" layoutX="518.0" layoutY="300.0" mnemonicParsing="false" />
+            <Button fx:id="reMatch" layoutX="452.0" layoutY="300.0" mnemonicParsing="false" onAction="#setReMatch" />
+            <Button fx:id="newGame" layoutX="518.0" layoutY="300.0" mnemonicParsing="false" onAction="#startNewGame" />
             <Button fx:id="endGame" layoutX="587.0" layoutY="300.0" mnemonicParsing="false" />
          </children>
          <padding>

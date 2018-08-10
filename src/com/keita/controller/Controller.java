@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 
 import java.util.Optional;
@@ -20,7 +19,8 @@ public class Controller {
     Button reMatch, newGame, endGame;
 
     private Button[][] dashboard = new Button[3][3];
-    private String turn = "X";
+    private String turn;
+    private boolean winnerFound;
 
     @FXML
     public void initialize() {
@@ -31,7 +31,9 @@ public class Controller {
         // Initialize the button
         initializeButton();
         nameInputStage();
-        actionListener();
+        actionListener(dashboard);
+
+        endGame.setOnAction(e -> System.exit(0));
     }
 
     private void initializeButton() {
@@ -80,66 +82,75 @@ public class Controller {
         }
     }
 
-    private void actionListener() {
-        button1.setOnAction(event -> {
-            button1.setText(turn);
-            winnerFound(dashboard);
-            button1.setDisable(true);
-        });
-        button2.setOnAction(event -> {
-            winnerFound(dashboard);
-            button2.setText(turn);
-            button2.setDisable(true);
+    private void actionListener(Button[][] dashboard) {
+        for (int c = 0; c < dashboard.length; c++) {
+            final int i = c;
+            for (int b = 0; b < dashboard[c].length; b++) {
+                final int j = b;
+                dashboard[c][j].setOnAction(e -> {
+                    dashboard[i][j].setText(turn);
+                    dashboard[i][j].setDisable(true);
+                    if (checkForWinner(dashboard)) {
+                        enable();
+                    }
+                    else {
+                        changePlayerTurn();
+                        disable();
+                    }
 
-        });
-        button3.setOnAction(event -> {
-            button3.setText(turn);
-            winnerFound(dashboard);
-            button3.setDisable(true);
-        });
-        button4.setOnAction(event -> {
-            button4.setText(turn);
-            winnerFound(dashboard);
-            button4.setDisable(true);
-        });
-        button5.setOnAction(event -> {
-            button5.setText(turn);
-            winnerFound(dashboard);
-            button5.setDisable(true);
-        });
-        button6.setOnAction(event -> {
-            button6.setText(turn);
-            winnerFound(dashboard);
-            button6.setDisable(true);
-        });
-        button7.setOnAction(event -> {
-            button7.setText(turn);
-            winnerFound(dashboard);
-            button7.setDisable(true);
-        });
-
-        button8.setOnAction(event -> {
-            button8.setText(turn);
-            winnerFound(dashboard);
-            button8.setDisable(true);
-        });
-        button9.setOnAction(event -> {
-            button9.setText(turn);
-            winnerFound(dashboard);
-            button9.setDisable(true);
-        });
-
+                });
+            }
+        }
     }
 
-    private boolean winnerFound(Button[][] dashboard) {
+    private boolean checkForWinner(Button[][] dashboard) {
 
-        this.turn = (turn.equals("X")) ? "O" : "X";
-        playerTurn.setText(getPlayerName(this.turn) + ": make a move to an empty space");
+        if (winnerByHorizontalLine(dashboard)) {
+            recordScore(playerOneScore, playerTwoScore, turn);
+            return true;
+        }
+        else if (drawGame(dashboard)) {
+            this.drawScore.setText(String.valueOf(Integer.parseInt(drawScore.getText()) + 1));
+            return true;
+        }
 
         return false;
     }
 
+    private boolean winnerByHorizontalLine(Button[][] dashboard) {
+        for (int c = 0; c < dashboard.length; c++) {
+            winnerFound = true;
+            for (int r = 0; r < dashboard[c].length; r++) {
+                if (!dashboard[c][r].getText().equals(turn))
+                    winnerFound = false;
+            }
+            if (winnerFound) {
+                return true;
+            }
+        }
+        return winnerFound;
+    }
+
+    private boolean drawGame(Button[][] dashboard) {
+        for (int c = 0; c < dashboard.length; c++) {
+            for (int r = 0; r < dashboard[c].length; r++) {
+                if (!dashboard[c][r].getText().equals("X") && !dashboard[c][r].getText().equals("O"))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private void recordScore(Label playerOneScore, Label playerTwoScore, String turn) {
+        if (turn.equals("X"))
+            this.playerOneScore.setText(String.valueOf((Integer.parseInt(playerOneScore.getText()) + 1)));
+        else
+            this.playerTwoScore.setText(String.valueOf(Integer.parseInt(playerTwoScore.getText()) + 1));
+    }
+
+
     private void nameInputStage() {
+        this.turn = "X";
         TextInputDialog inputText = new TextInputDialog("Enter name");
         inputText.getDialogPane().setPrefSize(500, 150);
         inputText.getDialogPane().setStyle("-fx-background-color: #2d394c;");
@@ -162,6 +173,7 @@ public class Controller {
         result = inputText.showAndWait();
         if (result.isPresent()) {
             playerTwo.setText(result.get());
+            disable();
             playerTurn.setText(getPlayerName(turn) + ": make a move to an empty space");
 
         }
@@ -169,9 +181,44 @@ public class Controller {
             System.exit(0);
     }
 
+    @FXML
+    private void setReMatch() {
+        enableDashboard();
+        initializeButton();
+        changePlayerTurn();
+    }
+
+    @FXML
+    private void startNewGame() {
+        nameInputStage();
+        enableDashboard();
+        initializeButton();
+    }
+
     private String getPlayerName(String playerTurn) {
         if (playerTurn.equals("X"))
             return playerOne.getText();
         return playerTwo.getText();
     }
+
+    private void changePlayerTurn() {
+        this.turn = (turn.equals("X")) ? "O" : "X";
+        playerTurn.setText(getPlayerName(this.turn) + ": make a move to an empty space");
+    }
+
+    private void disable() {
+        reMatch.setVisible(false);
+        newGame.setVisible(false);
+    }
+    private void enable() {
+        reMatch.setVisible(true);
+        newGame.setVisible(true);
+    }
+
+    private void enableDashboard() {
+        for (int c = 0; c < dashboard.length; c++)
+            for (int r = 0; r < dashboard[c].length; r++)
+                dashboard[c][r].setDisable(false);
+    }
+
 }
