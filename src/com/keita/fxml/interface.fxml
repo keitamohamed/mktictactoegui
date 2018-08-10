@@ -46,7 +46,7 @@
                   <Button fx:id="button9" mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <Pane fx:id="pane" layoutY="-2.0" prefHeight="89.0" prefWidth="656.0">
+            <Pane fx:id="pane" layoutX="-8.0" layoutY="-2.0" prefHeight="89.0" prefWidth="664.0">
                <children>
                   <Label fx:id="playerOne" layoutX="74.0" layoutY="51.0" text="Player one" />
                   <Label fx:id="playerOneScore" layoutX="281.0" layoutY="51.0" text="0" />

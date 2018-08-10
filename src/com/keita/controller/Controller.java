@@ -107,10 +107,13 @@ public class Controller {
 
         if (winnerByHorizontalLine(dashboard)) {
             recordScore(playerOneScore, playerTwoScore, turn);
+            disableDashboard(dashboard);
+            clickHere();
             return true;
         }
         else if (drawGame(dashboard)) {
             this.drawScore.setText(String.valueOf(Integer.parseInt(drawScore.getText()) + 1));
+            clickHere();
             return true;
         }
 
@@ -186,6 +189,7 @@ public class Controller {
         enableDashboard();
         initializeButton();
         changePlayerTurn();
+        disable();
     }
 
     @FXML
@@ -193,6 +197,10 @@ public class Controller {
         nameInputStage();
         enableDashboard();
         initializeButton();
+        disable();
+        playerOneScore.setText("0");
+        playerTwoScore.setText("0");
+        drawScore.setText("0");
     }
 
     private String getPlayerName(String playerTurn) {
@@ -219,6 +227,16 @@ public class Controller {
         for (int c = 0; c < dashboard.length; c++)
             for (int r = 0; r < dashboard[c].length; r++)
                 dashboard[c][r].setDisable(false);
+    }
+
+    private void disableDashboard(Button[][] dashboard) {
+        for (int c = 0; c < dashboard.length; c++)
+            for (int r = 0; r < dashboard[c].length; r++)
+                dashboard[c][r].setDisable(true);
+    }
+
+    private void clickHere() {
+        playerTurn.setText("Click here to re-match, start new or end game ===> ");
     }
 
 }

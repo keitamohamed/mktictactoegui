@@ -8,9 +8,15 @@
     -fx-font-weight: bold;
 }
 
-#playerOne, #playerOneScore, #drawScore, #playerTwoScore, #playerTwo {
+#playerOne, #playerTwo {
     -fx-text-fill: #fff;
     -fx-font-size: 18px;
+}
+
+#playerOneScore, #drawScore, #playerTwoScore {
+    -fx-font-size: 22px;
+    -fx-text-fill: #19c409;
+    -fx-font-weighth: bold;
 }
 
 #button1, #button2, #button3, #button4, #button5, #button6, #button7, #button8, #button9 {
@@ -44,7 +50,7 @@
 #newGame {
     -fx-min-width: 38px;
     -fx-max-height: 30px;
-    -fx-background-image: url("/image/newgame.png");
+    -fx-background-image: url("/image/addnew.png");
     -fx-background-size: 35 25;
     -fx-background-repeat: no-repeat;
 }
