@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.Pane;
 
+import java.util.List;
 import java.util.Optional;
 
 public class Controller {
@@ -91,6 +92,7 @@ public class Controller {
                     dashboard[i][j].setText(turn);
                     dashboard[i][j].setDisable(true);
                     if (checkForWinner(dashboard)) {
+                        winnerFound = false;
                         enable();
                     }
                     else {
@@ -105,19 +107,20 @@ public class Controller {
 
     private boolean checkForWinner(Button[][] dashboard) {
 
-        if (winnerByHorizontalLine(dashboard)) {
+        if (winnerByHorizontalLine(dashboard) || winnerByVerticalLineTest(dashboard) ||
+                winnerByNinetyDegreeAngle(dashboard)) {
             recordScore(playerOneScore, playerTwoScore, turn);
             disableDashboard(dashboard);
-            clickHere();
-            return true;
+            Winner(getPlayerName(turn) + " win the game!");
+            return winnerFound;
         }
         else if (drawGame(dashboard)) {
             this.drawScore.setText(String.valueOf(Integer.parseInt(drawScore.getText()) + 1));
-            clickHere();
+            Winner("It's a draw game!");
             return true;
         }
 
-        return false;
+        return winnerFound;
     }
 
     private boolean winnerByHorizontalLine(Button[][] dashboard) {
@@ -128,10 +131,56 @@ public class Controller {
                     winnerFound = false;
             }
             if (winnerFound) {
-                return true;
+                return winnerFound;
             }
         }
         return winnerFound;
+    }
+
+    private boolean winnerByVerticalLineTest(Button[][] dashboard) {
+
+        for (int column = 0; column < dashboard.length; column++) {
+            winnerFound = true;
+            for (int i = 0; i < dashboard.length; i++) {
+                if (!dashboard[i][column].getText().equals(turn)) {
+                    winnerFound = false;
+                }
+            }
+
+            if (winnerFound)
+                return winnerFound;
+        }
+        return winnerFound;
+    }
+
+    private boolean winnerByNinetyDegreeAngle(Button[][] dashBoard) {
+        int size = 0;
+        for (int column = 0; column < dashBoard.length - 1; column++) {
+            winnerFound = true;
+            for (int i = 0; i < dashBoard.length; i++) {
+                if (!dashBoard[i][size].getText().equals(turn)) {
+                    winnerFound = false;
+                }
+
+                if (column > 0) {
+                    size--;
+                }
+                else {
+                    size++;
+                }
+            }
+
+            if (!winnerFound && column >= 1) {
+                size = dashBoard.length - 1;
+            }else  {
+                size = dashBoard.length - 1;
+            }
+
+            if (winnerFound) {
+                return winnerFound;
+            }
+        }
+        return false;
     }
 
     private boolean drawGame(Button[][] dashboard) {
@@ -235,8 +284,8 @@ public class Controller {
                 dashboard[c][r].setDisable(true);
     }
 
-    private void clickHere() {
-        playerTurn.setText("Click here to re-match, start new or end game ===> ");
+    private void Winner(String message) {
+        playerTurn.setText(message);
     }
 
 }
