@@ -7,13 +7,12 @@ score record and draw (game tie) game. If there is a win or tie, all button
 will be disable and the re-match and new game button will be visible. The 
 players have the choice the choice now to either re-match, start new game or end program.
 
-####Below is a screen shot s of the game
-
+#### Below is a screen shot s of the game
 First player name input screen shot
 ![](src/image/nameinput1.PNG)
 Second player name input screen shot
 ![](src/image/nameinput2.PNG)
-Dashboard 
+Screen shot of the Dashboard 
 ![](src/image/dashboard.PNG)
 Winner and score record
 ![](src/image/winner.PNG)
