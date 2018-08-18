@@ -1,5 +1,20 @@
+.root {
+    -fx-background-color: #000;
+}
+
+.tool-bar {
+    -fx-background-color: #000;
+}
+
+.button:disabled {
+    -fx-opacity: .7;
+}
+
 #pane {
-    -fx-background-color: #5d6063;
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #fff;
+    -fx-border-style: dashed;
 }
 
 #drawWin {
@@ -10,6 +25,7 @@
 
 #playerOne, #playerTwo {
     -fx-text-fill: #fff;
+    -fx-font-family: "Arial Black";
     -fx-font-size: 18px;
 }
 
@@ -20,12 +36,18 @@
 }
 
 #button1, #button2, #button3, #button4, #button5, #button6, #button7, #button8, #button9 {
-    -fx-font-size: 18px;
+    -fx-text-fill: #fff;
+    -fx-font-size: 20px;
+    -fx-font-family: "Arial Black";
+    -fx-font-weight: bold;
     -fx-min-width: 120px;
     -fx-padding: 0, 10px 0 10x;
-    -fx-border-insets: 5px;
+    -fx-border-insets: 0px;
     -fx-border: none;
-
+    -fx-border-radius: none;
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #fff;
 }
 
 #button1:hover, #button2:hover, #button3:hover, #button4:hover,
@@ -35,30 +57,34 @@
 }
 
 #playerTurn {
-    -fx-text-fill: red;
-    -fx-font-size: 16px;
+    -fx-font-size: 18px;
+    -fx-font-family: "Times New Roman";
+    -fx-text-fill: #fff;
 }
 
 #reMatch {
-    -fx-min-width: 38px;
-    -fx-max-height: 30px;
     -fx-background-image: url("/image/reload.png");
-    -fx-background-size: 35 25;
-    -fx-background-repeat: no-repeat;
 }
 
 #newGame {
-    -fx-min-width: 38px;
-    -fx-max-height: 30px;
-    -fx-background-image: url("/image/addnew.png");
-    -fx-background-size: 35 25;
-    -fx-background-repeat: no-repeat;
+    -fx-background-image: url("/image/newgame.png");
 }
 
 #endGame {
-    -fx-min-width: 38px;
-    -fx-max-height: 30px;
     -fx-background-image: url("/image/poweroff.png");
+}
+
+#newGame, #endGame, #reMatch {
+    -fx-min-width: 45px;
+    -fx-max-height: 37px;
     -fx-background-size: 35 24;
+    -fx-background-position: center center;
+    -fx-focus-color: transparent;
+    -fx-border-insets: 0px;
+    -fx-border: none;
+    -fx-border-width: 0;
+    -fx-border-radius: none;
     -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
