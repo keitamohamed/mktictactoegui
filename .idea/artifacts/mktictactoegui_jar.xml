@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="mktictactoegui:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/mktictactoegui_jar</output-path>
+    <root id="archive" name="mktictactoegui.jar">
+      <element id="module-output" name="mktictactoegui" />
+      <element id="library" level="project" name="scenebuilder-10.0.0-all" />
+    </root>
+  </artifact>
+</component>
