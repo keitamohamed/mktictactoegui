@@ -9,12 +9,19 @@ players have the choice the choice now to either re-match, start new game or end
 
 #### Below is a screen shot s of the game
 First player name input screen shot
+
 ![](src/image/nameinput1.PNG)
+
 Second player name input screen shot
+
 ![](src/image/nameinput2.PNG)
+
 Screen shot of the Dashboard 
+
 ![](src/image/dashboard.PNG)
+
 Winner and score record
+
 ![](src/image/winner.PNG)
 
 Note: To run this program, you will need java 8 or higher

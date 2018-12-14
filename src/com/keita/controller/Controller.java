@@ -110,7 +110,7 @@ public class Controller {
                 winnerByNinetyDegreeAngle(dashboard)) {
             recordScore(playerOneScore, playerTwoScore, turn);
             disableDashboard(dashboard);
-            Winner(getPlayerName(turn) + " win the game!");
+            Winner(getPlayerName(turn) + " won the game!");
             return winnerFound;
         }
         else if (drawGame(dashboard)) {
@@ -225,7 +225,7 @@ public class Controller {
         if (result.isPresent()) {
             playerTwo.setText(result.get());
             disable();
-            playerTurn.setText(getPlayerName(turn) + ": make a move to an empty space");
+            playerTurn.setText(getPlayerName(turn) + " make a move to an empty space");
 
         }
         else
